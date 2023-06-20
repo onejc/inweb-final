@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            color: #444444;
+        }
+        .nav-bar {
+            border: solid #BFBFBF 1px;
+            padding: 10px 30px;
+            height: 80px;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 5;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1400px;
+            margin: 0 auto;
+        }
+        .nav-bar img.logo-icon {
+            height: 60px;
+            width: auto;
+        }
+        .nav-bar .catagory {
+            font-size: 20px;
+            display: flex;
+        }
+        .nav-bar .catagory p {
+            padding: 0 15px;
+            font-weight: 200;
+        }
+        .nav-bar .nav-icon {
+            display: flex;
+        }
+        .nav-bar img.profile {
+            width: 36px;
+            margin-right: 14px;
+            margin-top: 5px;
+        }
+        .nav-bar img.cart {
+            width: 36px;
+            height: 100%;
+            margin-top: 14px;
+        }
+
+
+        .bg {
+            background-color: #aea8a0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            z-index: 0;
+            height: 12;
+        }
+        .bg .text {
+            text-align: center;
+            padding-left: 20%;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 30px;
+        }
+        .bg .text h1 {
+            font-size: 50px;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            color: #444444;
+        }
+        .bg .text h2 {
+            font-size: 38px;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+        .bg img {
+            right: 0;
+        }
+
+        .dummy {
+            width: 100%;
+            height: 1040px;
+            pointer-events: none;
+        }
+
+
+        .new-arrivals {
+            height: 520px;
+            background-color: #fff;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        .new-arrivals h2 {
+            margin: 0 auto;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 36px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+        .new-arrivals h1 {
+            font-size: 14px;
+            font-weight: 200;
+        }
+        .new-arrivals p {
+            font-size: 18px;
+            font-weight: 200;
+        }
+        .swiper-wrapper {
+            display: flex;
+            background-color: #fff;
+            width: 1400px;
+            margin: 0 auto;
+        }
+        .swiper-slide {
+            flex: 0 0 calc(100% / 4);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .swiper-slide img {
+            width: 300px;
+            
+        }
+
+
+        .outter {
+            position: relative;
+            text-align: center;
+            display: flex;
+            color: white;
+            justify-content: center;
+            align-items: center;
+        }
+        .outter img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 520px;
+        }
+        .outter-parg {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 230px;
+            padding-bottom: 236px;
+        }
+        .outter h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 20px;
+            color: white;
+            letter-spacing: 0.2em;
+        }
+        .outter a {
+            color: white;
+            font-weight: 200;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+        }
+        .outter p a {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 200;
+            letter-spacing: 0.4em;
+            padding-top: 10px;
+        }
+
+
+        .gridpage {
+            width: 100vw;
+            height: 50vw;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            grid-template-rows: repeat(3,1fr);
+            gap: 0;
+            padding-top: 4px;
+            z-index: 1;
+            position: relative;
+        }
+        .gridpage div {
+            background-position: center;
+            background-size: cover;
+            transition: all 0.2s;
+        }
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            padding: 0;
+            margin: 0;
+            background-image: url("그리드1.png");
+        }
+        .box1 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box1:hover {
+            background-image: url("그리드1-.png");
+        }
+        .box1:hover p{
+            opacity: 1;
+        }
+        .box2 {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            margin: 0;
+            background-image: url("그리드2-.png");
+        }
+        .box2 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box2:hover {
+            background-image: url("그리드2-.png");
+        }
+        .box2:hover p{
+            opacity: 1;
+        }
+        .box3 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            margin: 0;
+            background-image: url("그리드3.png");
+        }
+        .box3 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box3:hover {
+            background-image: url("그리드3-.png");
+        }
+        .box3:hover p{
+            opacity: 1;
+        }
+        .box4 {
+            grid-column-start: 4;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            margin: 0;
+            background-image: url("그리드4.png");
+        }
+        .box4 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box4:hover {
+            background-image: url("그리드4-.png");
+        }
+        .box4:hover p{
+            opacity: 1;
+        }
+        .box5 {
+            grid-column-start: 6;
+            grid-column-end: 7;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            margin: 0;
+            background-image: url("그리드5.png");
+        }
+        .box5 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box5:hover {
+            background-image: url("그리드5-.png");
+        }
+        .box5:hover p{
+            opacity: 1;
+        }
+        .box6 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 4;
+            margin: 0;
+            background-image: url("그리드6.png");
+        }
+        .box6 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box6:hover {
+            background-image: url("그리드6-.png");
+        }
+        .box6:hover p{
+            opacity: 1;
+        }
+        .box7 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            margin: 0;
+            background-image: url("그리드7.png");
+        }
+        .box7 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box7:hover {
+            background-image: url("그리드7-.png");
+        }
+        .box7:hover p{
+            opacity: 1;
+        }
+        .box8 {
+            grid-column-start: 6;
+            grid-column-end: 7;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            margin: 0;
+            background-image: url("그리드8.png");
+        }
+        .box8 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box8:hover {
+            background-image: url("그리드8-.png");
+        }
+        .box8:hover p{
+            opacity: 1;
+        }
+        .box9 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            margin: 0;
+            background-image: url("그리드9.png");
+        }
+        .box9 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box9:hover {
+            background-image: url("그리드9-.png");
+        }
+        .box9:hover p{
+            opacity: 1;
+        }
+        .box10 {
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            margin: 0;
+            background-image: url("그리드10.png");
+        }
+        .box10 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box10:hover {
+            background-image: url("그리드10-.png");
+        }
+        .box10:hover p{
+            opacity: 1;
+        }
+        .box11 {
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            margin: 0;
+            background-image: url("그리드11.png");
+        }
+        .box11 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box11:hover {
+            background-image: url("그리드11-.png");
+        }
+        .box11:hover p{
+            opacity: 1;
+        }
+        .box12 {
+            grid-column-start: 6;
+            grid-column-end: 7;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            margin: 0;
+            background-image: url("그리드12.png");
+        }
+        .box12 p {
+            color: #000000;
+            opacity: 0;
+            font-size: 1vw;
+            text-align: center;
+            margin: auto;
+        }
+        .box12:hover {
+            background-image: url("그리드12-.png");
+        }
+        .box12:hover p{
+            opacity: 1;
+        }
+
+
+        .footer {
+            position: relative;
+            margin: auto;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            text-align: center;
+            background-color: white;
+            padding-top: 60px;
+        }
+        .footer h1 {
+            background-color: #444444;
+            color: white;
+            width: 200px;
+            height: 50px;
+            padding-top: 15px;
+            margin-bottom: 130px;
+            font-size: 14px;
+            font-weight: 100;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer img {
+            width: 36px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-info {
+            background-color: #444444;
+            width: 100vw;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 37px;
+        }
+        .footer-info li{
+            color: white;
+            font-size: 15px;
+            font-weight: 200;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .footer-info-bottom {
+            display: flex;
+            justify-content: space-between;
+            background-color: #444444;
+        }
+        .footer-info-bottom p {
+            color: white;
+            font-size: 14px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="box">
+            <a href="pg1.html">
+                <img class="logo-icon" src="이얼즈어고 로고.png">
+            </a>
+            <div class="catagory">
+                <p>SHOP</p>
+                <p>NEW ARRIVALS</p>
+                <p>BRANDS</p>
+                <p>CLOTHING</p>
+                <p>FOOTWEAR</p>
+                <p>ACCESSORIES</p>
+                <p>SALE</p>
+                <p>CONTACT</p>
+            </div>
+            <div class="nav-icon">
+                <img class="profile" src="프로필icon.png">
+                <img class="cart" src="장바구니icon.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="bg">
+        <div class="text">
+            <h1>New Fall Arrivals</h1>
+            <a href="pg3.html">SHOP NOW</a>
+        </div>
+        <img class="bg-img" src="메인페이지img.png">
+    </div>
+
+    <div class="dummy"></div>
+
+    <div class="new-arrivals">
+        <h2>NEW ARRIVALS</h2>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="슬라이드1.png"alt="">
+                <h1>SHAMROCK GREEN YRS POIKA WASHED SHIRTS</h1>
+                <p>KRW 183,000</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="슬라이드2.png"alt="">
+                <h1>DEEP RED ROUND NECK MID CABLE CARDIGAN</h1>
+                <p>KRW 238,000</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="슬라이드3.png"alt="">
+                <h1>M.NAVY WASHED RENTO T</h1>
+                <p>KRW 89,000</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="슬라이드4.png"alt="">
+                <h1>COBALT BLUE HENRI NECK ZIP SWEAT SHRITS</h1>
+                <p>KRW 128,000</p>
+            </div> 
+            <!-- <div class="swiper-slide">
+                <img src="슬라이드5.png"alt="">
+                <h1>SHAMROCK GREEN YRS POIKA WASHED SHIRTS</h1>
+                <p>KRW 128,000</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="슬라이드6.png"alt="">
+                <h1>SHAMROCK GREEN YRS POIKA WASHED SHIRTS</h1>
+                <p>KRW 183,000</p>
+            </div> -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="outter">
+        <img src="1페이지 아우터.png">
+        <div class="outter-parg">
+            <h1><a href="pg2.html">OUTTER</a></h1>
+            <p><a href="pg2.html">SHOP NOW</a></p>
+        </div>
+    </div>
+
+    <div class="gridpage">
+        <div class="box1"><p>@yearsago_official<br>〰Spring</p></div>
+        <div class="box2"><p>@yearsago_official<br>〰Spring</p></div>
+        <div class="box3"><p>친환경적이고 지속가능한 환경을
+            <br>검증하는 기관인 BCI(Better
+            <br>Cotton Initiative)에서 인증
+            <br>을 받은 코튼 소재로 만들어진
+            <br>REIPAS Half Collar Knit를
+            <br>....</p></div>
+        <div class="box4"><p>Yeiji’s Friends
+            <br><br>이얼즈어고의 포토그래퍼 예지는 7년이라는
+            <br>시간동안 일본의 규슈(KYUSHU)에서 지냈습니다.
+            <br>얼마전 일본에 다시 방문해야 할 일이 생겼을 때
+            <br>....</p></div>
+        <div class="box5"><p>Indigo Reversed Detail Comfort
+            <br>Tapered Pants
+            <br>2023/02/09 6pm</p></div>
+        <div class="box6"><p>[DISTANCE] 4 PANEL CAPE
+            <br>BLOUSON_DARK NAVY, BLACK
+            <br><br>올해 처음으로 선보이는 이얼즈어고
+            <br>Distance의 새로운 디자인으로 남성 복식사
+            <br>카테고리에서 빼놓을 수 없는 밀리터리에 대한
+            <br>....</p></div>
+        <div class="box7"><p>이얼즈어고의 footwear
+            <br>-flexible wrinkle leather string loafer
+            <br><br>지금 바로 @apartfromthat_store
+            <br>어파트프롬댓 온라인 스토어에서 만나보세요.</p></div>
+        <div class="box8"><p>[Christ Mas Edition 출시소식]
+            <br>이얼즈어고의 크리스마스 에디션이 다가오는
+            <br>12월 21일 오후 12시, 어파트프롬댓 온라인
+            <br>스토어에 출시됩니다.
+            <br>올해 많은 관심을 받았던 아래 3가지 제품의
+            <br>....</p></div>
+        <div class="box9"><p>2023년 이얼즈어고는 우리가 생각하는
+            <br>‘지속가능성’이 단순히 좋은 소재를 쓰는
+            <br>것에서 더 나아가 고객들에게 어떤 가치를
+            <br>전달할 것인지를 가장 중요하게 생각하고
+            <br>실천해 갈 것입니다.
+            <br>....</p></div>
+        <div class="box10"><p>National (Happy)
+            <br>Puppy Day With Miji !</p></div>
+        <div class="box11"><p>years ago x bulletto
+            <br>이얼즈어고와 불레또의 협업 제품을 소개합니다.
+            <br><br>롤렉스의 오래된 아카이브인 빈티지
+            <br>서브마리너 16800과, 빈티지 데이저스트 16014,
+            <br>이 두 모델을 오마주한 Watch Bracelet입니다.
+            <br>....</p></div>
+        <div class="box12"><p>5월 딜리버리 4차 제품의 할인 혜택은
+            <br>오늘 자정에 종료됩니다.
+            <br><br>품절된 사이즈나 제품에 대한 취소, 교환 수량을
+            <br>반영해두었으니 찾으시는 사이즈가 품절이었다면 지금
+            <br>다시 한번 어파트프롬댓 스토어 온라인을 확인해주세요.
+            <br>....</p></div>
+    </div>
+
+    <div class="footer">
+        <h1>Load More</h1>
+        <img src="인스타.png">
+        <img src="페북.png">
+        <img src="트위터.png">
+        <ul class="footer-info">        
+            <li>주식회사 모던애니멀 이태형</li>
+            <li>INFO@MODERNANIMAL.KR</li>
+            <li>+82-2-332-0243</li>
+            <li>서울시 마포구 와우산로 161 지하1층</li>
+        </ul>
+        <div class="footer-info-bottom">
+                <p>2022 @apartfromthat</p>
+                <p>About Terms Policy</p>
+         </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>

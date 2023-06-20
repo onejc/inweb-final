@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            color: #444444;
+        }
+        .nav-bar {
+            border: solid #BFBFBF 1px;
+            padding: 10px 30px;
+            height: 80px;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 5;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1400px;
+            margin: 0 auto;
+        }
+        .nav-bar img.logo-icon {
+            height: 60px;
+            width: auto;
+        }
+        .nav-bar .catagory {
+            font-size: 20px;
+            display: flex;
+        }
+        .nav-bar .catagory p {
+            padding: 0 15px;
+            font-weight: 200;
+        }
+        .nav-bar .nav-icon {
+            display: flex;
+        }
+        .nav-bar img.profile {
+            width: 36px;
+            margin-right: 14px;
+            margin-top: 5px;
+        }
+        .nav-bar img.cart {
+            width: 36px;
+            height: 100%;
+            margin-top: 14px;
+        }
+
+        .dummy {
+            height: 80px;
+        }
+
+
+        .main {
+            font-family: 'Pretendard-Regular';
+            display: flex;
+            flex-direction: column;
+        }
+        .main h5 {
+            width: 1400px;
+            font-size: 20px;
+            font-weight: 200;
+            margin: 100px auto 100px auto;
+        }
+        .main-body {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px auto;
+            width: 1400px;
+            padding-bottom: 200px;
+        }
+        .left,
+        .right {
+            flex-basis: 40%;
+        }
+        .main-body .left {
+            display: flex;
+            flex-direction: column;
+            width: 80px;
+        }
+        .left img,
+        .right-img img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .main-img img {
+            width: 75%;
+            height: auto;
+        }
+        .right-top {
+            margin-bottom: 100px;
+        }
+        .right-top h1 {
+            font-size: 34px;
+            font-weight: 300;
+            margin: 10px 0 5px 0;
+            letter-spacing: 0.02em;
+        }
+        .right-top h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            margin-left: 0;
+            font-weight: 100;
+        }
+        .right-top p {
+            font-size: 22px;
+            margin-bottom: 10px;
+            margin-left: 0;
+            font-weight: 100;
+        }
+        .right-img img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .right-mid p {
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: 200;
+        }
+        .right-bottom {
+            margin-top: 20px;
+            margin-left: 0;
+        }
+        .size {
+            display: flex;
+            justify-content: space-between;
+            border: solid #c2c2c2 1px;
+        }
+        .size h1 {
+            font-size: 18px;
+            letter-spacing: 0.05em;
+            font-weight: 200;
+        }
+        .size img {
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+        }
+        .right-bottom h2,
+        .right-bottom h3 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+
+        .cut {
+            background-image: url("환기점.png");
+            background: cover;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 25vw;
+        }
+        .cut h1 {
+            color: #fff;
+            font-family: 'Pretendard-Regular';
+        }
+
+
+        .product {
+            width: 1400px;
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 0.05em;
+        }
+        .product .left2 {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Pretendard-Regular';
+        }
+        .product .left2 h1 {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .product .left2 h2 {
+            font-size: 28px;
+            font-weight: 200;
+            margin-bottom: 160px;
+        }
+        .product .left2 p {
+            font-size: 24px;
+            font-weight: 200;
+            margin-bottom: 20px;
+        }
+        .product .left2 h3, h4, h5, h6 {
+            font-size: 36px;
+            font-weight: 100;
+        }
+        .right2 {
+            width: 550px;
+        }
+
+
+        .recomend h1 {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #AEA8A0;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding: 5px;
+        }
+        .slider {
+            width: 1400px;
+            margin: 50px auto 200px auto;
+        }
+
+
+        .footer {
+            position: relative;
+            margin: auto;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            text-align: center;
+            background-color: white;
+            padding-top: 60px;
+        }
+        .footer h1 {
+            background-color: #444444;
+            color: white;
+            width: 200px;
+            height: 50px;
+            padding-top: 15px;
+            margin-bottom: 130px;
+            font-size: 14px;
+            font-weight: 100;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer img {
+            width: 36px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-info {
+            background-color: #444444;
+            width: 100vw;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 37px;
+        }
+        .footer-info li{
+            color: white;
+            font-size: 15px;
+            font-weight: 200;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .footer-info-bottom {
+            display: flex;
+            justify-content: space-between;
+            background-color: #444444;
+        }
+        .footer-info-bottom p {
+            color: white;
+            font-size: 14px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="box">
+            <a href="pg1.html">
+                <img class="logo-icon" src="이얼즈어고 로고.png">
+            </a>
+            <div class="catagory">
+                <p>SHOP</p>
+                <p>NEW ARRIVALS</p>
+                <p>BRANDS</p>
+                <p>CLOTHING</p>
+                <p>FOOTWEAR</p>
+                <p>ACCESSORIES</p>
+                <p>SALE</p>
+                <p>CONTACT</p>
+            </div>
+            <div class="nav-icon">
+                <img class="profile" src="프로필icon.png">
+                <img class="cart" src="장바구니icon.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="dummy"></div>
+
+    <div class="main">
+        <h5>Outter / CAMEL YRS SYMBOL VARSITY JACKET</h5>
+        <div class="main-body">
+            <div class="left">
+                <img src="주력1.png">
+                <img src="주력2.png">
+                <img src="주력3.png">
+                <img src="주력4.png">
+                <img src="주력5.png">
+                <img src="주력6.png">
+            </div>
+            <div class="main-img">
+                <img src="주력메인.png">
+            </div>
+            <div class="right">
+                <div class="right-top">
+                    <h1>CAMEL YRS SYMBOL VARSITY JACKET</h1>
+                    <h2>22FW Varsity Jacket</h2>
+                    <p>KRW 598,000</p>
+                </div>
+                <div class="right-img">
+                    <img src="주력 컬러1.png">
+                    <img src="주력 컬러2.png">
+                </div>
+                <div class="right-mid">
+                    <p>겉감 WOOL 70 NYLON CASHMERE 10<br>소마감 COW LEATHER 100<br>안감 VISCOS RAYON 50 POLYESTER 50</p>
+                </div>
+                <div class="right-bottom">
+                    <div class="size">
+                        <h1>사이즈 선택</h1>
+                        <img src="아래키.png">
+                    </div>
+                    <h2>구매하기</h2>
+                    <h3>장바구니에 추가</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cut">
+        <h1>YRS COLLECTION</h1>
+    </div>
+
+    <div class="product">
+        <div class="left2">
+            <h1>THE PRODUCT<br>YOU'VE CHOOSE</h1>
+            <h2>CAMEL YRS SYMBOL VARSITY</h2>
+            <p>CHOOSE YOUR MOOD<br>AND GET OUR RECOMENDATION</p>
+            <h3>DAILY</h3>
+            <h4>CASUAL</h4>
+            <h5>STREET</h5>
+            <h6>DANDY</h6>
+        </div>
+        <img class="right2" src="추천 메인.png">
+    </div>
+
+    <div class="recomend">
+        <h1>CASUAL</h1>
+        <div class="wrapper3">
+            <div class="slider">
+                <img src="추천1.png">
+                <img src="추천2.png">
+                <img src="추천3.png">
+                <img src="추천4.png">
+                <img src="추천5.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="인스타.png">
+        <img src="페북.png">
+        <img src="트위터.png">
+        <ul class="footer-info">
+            <li>주식회사 모던애니멀 이태형</li>
+            <li>INFO@MODERNANIMAL.KR</li>
+            <li>+82-2-332-0243</li>
+            <li>서울시 마포구 와우산로 161 지하1층</li>
+        </ul>
+        <div class="footer-info-bottom">
+            <p>2022 @apartfromthat</p>
+            <p>About Terms Policy</p>
+        </div>
+    </div>
+</body>
+</html>

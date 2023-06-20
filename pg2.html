@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Pretendard-Regular';
+        }
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            color: #444444;
+        }
+
+        .nav-bar {
+            border: solid #BFBFBF 1px;
+            padding: 10px 30px;
+            height: 80px;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 5;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1400px;
+            margin: 0 auto;
+        }
+        .nav-bar img.logo-icon {
+            height: 60px;
+            width: auto;
+        }
+        .nav-bar .catagory {
+            font-size: 20px;
+            display: flex;
+        }
+        .nav-bar .catagory p {
+            padding: 0 15px;
+            font-weight: 200;
+        }
+        .nav-bar .nav-icon {
+            border: solid red 1px;
+            display: flex;
+        }
+        .nav-bar img.profile {
+            width: 36px;
+            margin-right: 14px;
+            margin-top: 5px;
+        }
+        .nav-bar img.cart {
+            width: 36px;
+            height: 100%;
+            margin-top: 14px;
+        }
+
+
+        .main {
+            background-image: url("2페이지 메인.png");
+            background-size: cover;
+            height: 900px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: -1;
+            margin-top: 80px;
+        }
+        .main h1 {
+            padding-top: 420px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            font-size: 40px;
+            letter-spacing: 0.25em;
+            color: white;
+        }
+
+        .dummy {
+            height: 1000px;
+        }
+
+        .outters {
+            height: 2140px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .outters h2 {
+            font-family: 'Pretendard-Regular';
+            font-weight: 100;
+            font-size: 18px;
+            line-height: 1.7em;
+            letter-spacing: 0.05em;
+            padding-top: 100px;
+            margin-bottom: 180px;
+            background-color: #fff;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .cloth {
+            justify-content: center;
+            margin-left: 10px;
+            margin-right: 10px;
+            transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        .cloth:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        .cloth img {
+            height: 300px;
+        }
+        .subal img{
+            height: 240px;
+            margin: 40px 29px 20px 29px;
+        }
+        .like {
+            display: flex;
+            position: relative;
+        }
+        .heart {
+            position: relative;
+        }
+        .heart img {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            margin-left: -60px;
+        }
+        .cloth h1 {
+            font-size: 14px;
+            font-weight: 100;
+            margin-bottom: 4px;
+        }
+        .cloth p {
+            font-size: 18px;
+            font-weight: 100;
+            padding-bottom: 30px;
+        }
+        .outters h3 {
+            background-color: #444444;
+            color: white;
+            width: 200px;
+            height: 50px;
+            padding-top: 15px;
+            margin-top: 60px;
+            margin-bottom: 130px;
+            font-size: 14px;
+            font-weight: 100;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .footer {
+            position: relative;
+            margin: auto;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            text-align: center;
+            background-color: white;
+            padding-top: 60px;
+        }
+        .footer h1 {
+            background-color: #444444;
+            color: white;
+            width: 200px;
+            height: 50px;
+            padding-top: 15px;
+            margin-bottom: 130px;
+            font-size: 14px;
+            font-weight: 100;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer img {
+            width: 36px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-info {
+            background-color: #444444;
+            width: 100vw;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 37px;
+        }
+        .footer-info li{
+            color: white;
+            font-size: 15px;
+            font-weight: 200;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .footer-info-bottom {
+            display: flex;
+            justify-content: space-between;
+            background-color: #444444;
+        }
+        .footer-info-bottom p {
+            color: white;
+            font-size: 14px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="box">
+            <a href="pg1.html">
+                <img class="logo-icon" src="이얼즈어고 로고.png">
+            </a>
+            <div class="catagory">
+                <p>SHOP</p>
+                <p>NEW ARRIVALS</p>
+                <p>BRANDS</p>
+                <p>CLOTHING</p>
+                <p>FOOTWEAR</p>
+                <p>ACCESSORIES</p>
+                <p>SALE</p>
+                <p>CONTACT</p>
+            </div>
+            <div class="nav-icon">
+                <img class="profile" src="프로필icon.png">
+                <img class="cart" src="장바구니icon.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1>OUTTER</h1>
+    </div>
+
+    <div class="dummy"></div>
+
+    <div class="outters">
+        <h2>“All Great Achievements Require Time” 이얼즈어고는 기본적인 디자인부터<br>
+            굿 디자인 아카이브에서 영감을 얻은 구조적인 디자인과 엄선하여 선택된 좋은 소재를 사용합니다.<br>
+            훌륭한 기술공에 의해 탄생하는 우리의 옷은 시간이 지나도 변하지 않는 가치를 기반으로 전개됩니다.
+        </h2>
+        <div class="row">
+            <div class="cloth">
+                <div class="subal"><a href="pg3.html">
+                    <div class="like">
+                        <img src="추천 메인.png">
+                    </div>    
+                    <h1>CAMEL YRS SYMBOL VARSITY JACKET</h1>
+                    <p>KRW 338,000</p>
+                </div></a>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 2.png">
+                </div>
+                <h1>MELANGE GREY ELBOW PATCH KNIT MA-1</h1>
+                <p>KRW 338,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 1.png">
+                </div>
+                <h1>COBALT BLUE ELBOW PATCH KNIT MA-1</h1>
+                <p>KRW 338,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 4.png">
+                </div>
+                <h1>RED BLACK ROLLING COLLAR RUGBY KNIT</h1>
+                <p>KRW 238,000</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 5.png">
+                </div>
+                <h1>BEIGE BLOCK VARSITY JACKET</h1>
+                <p>KRW 398,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 6.png">
+                </div>
+                <h1>BLACK BLOCK VARSITY JACKET</h1>
+                <p>KRW 398,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 7.png">
+                </div>
+                <h1>BLACK BUTTON ZIP JACKET</h1>
+                <p>KRW 348,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 8.png">
+                </div>
+                <h1>BLACK W.M.P JUMPER</h1>
+                <p>KRW 398,000</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 9.png">
+                </div>
+                <h1>RED CLAY ROVER WOOL KNIT JACKET 02</h1>
+                <p>KRW 298,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 10.png">
+                </div>
+                <h1>RED ROVER WOOL CARDIGAN 01-2</h1>
+                <p>KRW 288,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 11.png">
+                </div>
+                <h1>GARDEN ROVER WOOL KNIT JACKET 02</h1>
+                <p>KRW 298,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 12.png">
+                </div>
+                <h1>GREEN ROVER WOOL CARDIGAN 01-2</h1>
+                <p>KRW 288,000</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 13.png">
+                </div>
+                <h1>RED PUFFER GOOSE DOWN JUMPER</h1>
+                <p>KRW 528,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 14.png">
+                </div>
+                <h1>GREEN PUFFER GOOSE DOWN JUMPER</h1>
+                <p>KRW 528,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 15.png">
+                </div>
+                <h1>BLACK TIMELEAP SINGLE COAT</h1>
+                <p>KRW 628,000</p>
+            </div>
+            <div class="cloth">
+                <div class="like">
+                    <img src="나열 16.png">
+                </div>
+                <h1>BEIGE TIMELEAP SINGLE COAT</h1>
+                <p>KRW 628,000</p>
+            </div>
+        </div>
+        <h3>More Items</h3>
+    </div>
+
+    <div class="footer">
+        <img src="인스타.png">
+        <img src="페북.png">
+        <img src="트위터.png">
+        <ul class="footer-info">
+            <li>주식회사 모던애니멀 이태형</li>
+            <li>INFO@MODERNANIMAL.KR</li>
+            <li>+82-2-332-0243</li>
+            <li>서울시 마포구 와우산로 161 지하1층</li>
+        </ul>
+        <div class="footer-info-bottom">
+            <p>2022 @apartfromthat</p>
+            <p>About Terms Policy</p>
+        </div>
+    </div>
+
+
+
+    <script>
+        var heart = document.getElementById("heart");
+        var filled = false;
+
+        heart.addEventListener("click", function() {
+            if (filled) {
+                heart.classList.remove("filled");
+                filled = false;
+            } else {
+                heart.classList.add("filled");
+                filled = true;
+            }
+        });
+    </script>
+</body>
+</html>
